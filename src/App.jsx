@@ -46,7 +46,7 @@ function App() {
       <RemoveWidgetProvider onRemove={handleRemove}>
         <div className="dashboard-container">
           <aside className="sidebar">
-            <h2>Personalized Dashboard</h2>
+            <h2>Dashboard</h2>
             <ul>
               {availableWidgets.map(w => (
                 <SidebarWidget key={w.id} widget={w} />

@@ -1,23 +1,61 @@
-/* .dashboard-card.dragging {
-  opacity: 0.5;
-  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
-  transform: scale(0.98);
-} */
+.worddict-slot.drag-over .movies-widget .movies-row {
+  transition: transform 0.2s;
+  z-index: 10;
+  transform: scale(1.5);
+
+}
+.worddict-slot.drag-over .movies-widget img {
+  transition: transform 0.2s;
+  z-index: 10;
+}
+.movies-slot .weather-details-centered > div,
+.worddict-slot .weather-details-centered > div {
+  display: flex !important;
+  /* font-size: 1.8rem !important; */
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding-top: 2rem;
+  /* transform: scale(1.5); */
+}
+
+.movies-slot .weather-details-centered > div:first-child,
+.worddict-slot .weather-details-centered > div:first-child {
+  display: flex !important;  
+  font-size: 1.8rem !important;
+  font-weight: bold !important;
+  margin-top: 2rem !important;
+  text-align: center !important;
+
+}
+
+/* Custom tooltip for sidebar widgets */
+.sidebar-widget[data-tooltip]:hover:after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 110%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(48, 165, 233, 0.95);
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.7rem;
+  font-size: 0.85rem !important;
+  line-height: 1.1;
+  font-weight: 600;
+  z-index: 1000;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 2px 12px rgba(48,165,233,0.18);
+  z-index: 100;
+  pointer-events: none;
+}
+
 .remove-widget, .remove-widget-btn {
   position: absolute;
-  top: 0px;
   right: 14px;
-  /* background: #e63946; */
   color: #1d29cc;
-  /* border: none; */
-  /* border-radius: 50%; */
-  /* width: 28px; */
-  /* height: 28px; */
   font-size: 1.3rem;
-  /* cursor: pointer; */
-  /* box-shadow: 0 2px 8px rgba(44,62,80,0.08); */
-  /* transition: background 0.2s; */
-  /* z-index: 2; */
 }
 .remove-widget:hover, .remove-widget-btn:hover {
   /* background: #b71c1c; */
@@ -41,12 +79,12 @@
 /* .remove-widget-btn:hover {
   background: #d32f2f;
 } */
-.news-list {
+.worddict-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.news-item {
+.worddict-item {
   background: #f7f8fa;
   border-radius: 10px;
   margin-bottom: 1rem;
@@ -54,17 +92,17 @@
   transition: box-shadow 0.2s, transform 0.2s;
   padding: 1rem;
 }
-.news-item:hover {
+.worddict-item:hover {
   box-shadow: 0 6px 18px rgba(44,62,80,0.13);
   transform: scale(1.03);
 }
-.news-title {
+.worddict-title {
   font-weight: 500;
   font-size: 1.08rem;
   color: #232946;
   margin-bottom: 0.3rem;
 }
-.news-meta {
+.worddict-meta {
   font-size: 0.92rem;
   color: #4f5d75;
   display: flex;
@@ -89,9 +127,41 @@
 }
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f4f6fb;
+  /* background: #f4f6fb; */
+  background: linear-gradient(120deg, #558a9b 5%, #07092b 100%);
   margin: 0;
   padding: 0;
+  background-size: 200% 200%;
+  animation: waveBG 12s ease-in-out infinite;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(90deg, rgba(120,180,220,0.13) 10%, transparent 10%, transparent 12%, rgba(120,180,220,0.13) 12%),
+    linear-gradient(0deg, rgba(180,210,240,0.13) 10%, transparent 10%, transparent 12%, rgba(180,210,240,0.13) 12%);
+  background-size: 40px 40px;
+  mix-blend-mode: lighten;
+}
+
+@keyframes waveBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .dashboard-container {
@@ -103,24 +173,29 @@ body {
 }
 
 .sidebar {
-  width: 220px;
   min-width: 180px;
-  /* background: #f7f8fa; */
   background: #232946;
   color: #fff;
-  border-right: 1px solid #e0e0e0;
-  padding: 2rem 1rem 2rem 0;
+  padding: 2rem 0 2rem 0;
   box-sizing: border-box;
   position: fixed;
   left: 0;
-  top: 0;
+  top: 10rem;
   bottom: 0;
-  height: 100vh;
+  height: 50vh;
   z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 4px 16px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.3s, transform 0.5s cubic-bezier(0.4,0.2,0.2,1), background 0.3s;
 }
+
+.sidebar:hover {
+  transform: translateX(40px);
+}
+
 .sidebar h2 {
   margin-top: 0;
   font-size: 1.3rem;
@@ -130,133 +205,215 @@ body {
   padding-left: 0;
   margin: 0;
 }
+/* Circular sidebar widget icons */
 .sidebar-widget {
-  background: #393e6a;
-  margin: 0.5rem 0;
-  padding: 0.7rem 1rem;
-  border-radius: 8px;
+  background: linear-gradient(135deg, #6593ff 0%, #2b85cf 100%);
+  color: #fff;
+  margin: 2rem 0;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: grab;
-  transition: background 0.2s, transform 0.2s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: 0 4px 16px rgba(41, 95, 139, 0.18), 0 1.5px 4px rgba(0,0,0,0.08);
+  font-size: 2.2rem;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
 }
+
+.sidebar-widget[data-tooltip="Weather"] {
+  /* background: linear-gradient(135deg, #ff9800 0%, #ff6f00 100%); */
+  background: linear-gradient(135deg, #6593ff 0%, #0d4e83 100%);
+  color: #ffba25;
+}
+
+.sidebar-widget[data-tooltip="Weather"]:hover {
+  /* background: linear-gradient(135deg, #ffb74d 0%, #ff8f00 100%); */
+  background: linear-gradient(135deg, #8dafff 0%, #0c4b80 100%);  
+  color: #fff;
+  transform: scale(1.18);
+}
+
+.sidebar-widget[data-tooltip="Movies"] {
+  /* background: linear-gradient(135deg, #ff9800 0%, #ff6f00 100%); */
+  background: linear-gradient(135deg, #fff596 0%, #454d00 100%);
+  color: #710bf7;
+}
+
+.sidebar-widget[data-tooltip="Movies"]:hover {
+  /* background: linear-gradient(135deg, #ffb74d 0%, #ff8f00 100%); */
+  background: linear-gradient(135deg, #6593ff 0%, #165f9b 100%);  
+  color: #fff;
+  transform: scale(1.1);  
+}
+
+.sidebar-widget[data-tooltip="Word Dictionary"] {
+  /* background: linear-gradient(135deg, #ff9800 0%, #ff6f00 100%); */
+  background: linear-gradient(135deg, #a865ff 0%, #2f0e8b 100%);
+  color: #fcf82a;
+}
+
+.sidebar-widget[data-tooltip="Word Dictionary"]:hover {
+  /* background: linear-gradient(135deg, #ffb74d 0%, #ff8f00 100%); */
+  background: linear-gradient(135deg, #6593ff 0%, #2b85cf 100%);  
+  color: #fff;
+  transform: scale(1.1);  
+}
+
+.sidebar-widget[data-tooltip="Programming Trivia"] {
+  /* background: linear-gradient(135deg, #ff9800 0%, #ff6f00 100%); */
+  background: linear-gradient(135deg, #61ee90 0%, #066951 100%);
+  color: #fc2a2a;
+}
+
+.sidebar-widget[data-tooltip="Programming Trivia"]:hover {
+  /* background: linear-gradient(135deg, #ffb74d 0%, #ff8f00 100%); */
+  background: linear-gradient(135deg, #6593ff 0%, #2b85cf 100%);  
+  color: #fff;
+  transform: scale(1.1);  
+}
+
 .sidebar-widget:hover {
-  /* background: #4f5d75; */
-  background: rgb(48, 165, 233);
-  transform: scale(1.05);
+  transform: scale(1.1);
+  box-shadow: 0 0 24px 8px rgba(124, 177, 207, 0.2), 0 4px 16px rgba(41, 95, 139, 0.18);  
 }
+
 .sidebar-widget.dragging {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .dashboard {
-  /* margin-left: 220px; */
-  margin: 0;
+  margin-top: 1rem;
   padding: 0;
   display: flex; 
   flex-direction: row;
   align-items: left;
-
   gap: 0;
-  /* flex: 1; */
-  /* padding: 2rem; */
-  /* box-sizing: border-box; */
 }
+
 .dashboard h1 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
 }
-.dashboard-grid {
+ .dashboard-grid {
   display: grid;
   grid-template-areas:
-    "weather quote"
-    "stock news";
-  grid-template-columns: 400px 1200px;
-  grid-template-rows: 200px 400px;
+    "weather trivia"
+    "movies worddict";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 20px;
   width: 1600px;
-  height: 600px;
-  /* border: 4px solid #0077cc; */
+  height: 820px;
   box-sizing: border-box;
-  border-radius: 16px;
-  background: #f4f6fb;
-  box-shadow: 0 2px 12px rgba(44,62,80,0.08);
+  border-radius: 2rem;
   position: relative;
 }
-.weather-slot {
-  border: 2px solid #4fc3f7;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(79,195,247,0.15);
-  width: 400px;
-  height: 200px;
-  grid-area: weather;
-  background: #f7fbff;
-}
-.quote-slot {
-  border: 2px solid #81c784;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(129,199,132,0.15);
-  width: 1200px;
-  height: 200px;
-  grid-area: quote;
-  background: #f9fff7;
-}
-.stock-slot {
-  border: 2px solid #ffb74d;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(255,183,77,0.15);
-  width: 400px;
-  height: 400px;
-  grid-area: stock;
-  background: #fffaf7;
-}
-.news-slot {
-  border: 2px solid #e57373;
-  border-radius: 8px;
-  /* box-shadow: 0 4px 16px rgba(229,115,115,0.15); */
-  /* width: 1200px; */
-  /* height: 400px; */
-  grid-area: news;
-  background: #fff7f7;
-  grid-area: news;
-  width: 1200px;
-  height: 400px;
-  /* margin-top: 5px; */
-  /* margin-left: 20px;     */
-}
-/* .news-slot {
+.weather-slot,
+  .weather-slot,
+  .trivia-slot,
+  .movies-slot,
+  .worddict-slot {
+    border-radius: 2rem;
+    width: 100%;
+    height: 100%;
+    max-width: 900px;
+    max-height: 410px;
+  }
 
-} */
-/* Widget area sizes */
+/* Highlight slot when widget is dragged over */
+.drag-over {
+  /* border: 2.5px dashed #48aaff; */
+  /* background: rgba(75, 204, 255, 0.12); */
+  animation: slotPulse 0.7s infinite alternate;
+  transition: background 0.2s, border 0.2s;
+}
+
+@keyframes slotPulse {
+  from {
+    box-shadow: 0 0 0 0 rgba(75, 255, 255, 0.18);
+  }
+  to {
+    box-shadow: 0 0 16px 6px rgba(75, 198, 255, 0.28);
+  }
+}
+
+  .weather-widget,
+  .trivia-widget,
+  .movies-widget,
+  .worddict-widget {
+    width: 100%;
+    height: 100%;
+    max-width: 900px;
+    max-height: 410px;
+    box-sizing: border-box;
+    margin-top: 0;
+    transition: box-shadow 0.2s, transform 0.2s;
+    border: 2px solid #48aaff;
+    border-radius: 2rem;
+  }
+
+  .weather-widget:hover,
+  .trivia-widget:hover,
+  .movies-widget:hover,
+  .worddict-widget:hover {
+    box-shadow: 0 0 32px 8px rgba(48, 165, 233, 0.25), 0 4px 16px rgba(41, 95, 139, 0.18);
+    transform: scale(1.01);
+    z-index: 2;
+    cursor: pointer;
+  }
+
+.quote-widget blockquote {
+  font-size: 2rem;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: #232946;
+  font-style: italic;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  background: rgba(255,255,255,0.7);
+  border-radius: 1rem;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+}
+.quote-widget .trivia-answer {
+  font-size: 1.35rem;
+  color: #3a5ca8;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  font-weight: 600;
+  margin-top: 0.7rem;
+  text-align: center;
+  background: rgba(255,255,255,0.5);
+  border-radius: 0.7rem;
+  padding: 0.7rem 1.2rem;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.06);
+}
+.quote-widget h3 {
+  font-size: 2.1rem;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  color: #1d29cc;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+.movies-widget,
+.worddict-widget,
 .weather-widget {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-}
-.quote-widget {
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-}
-.stock-widget {
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-}
-.news-widget {
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
+  margin-top: 0;
 }
 
 .empty-slot.weather-slot {
-  min-height: 200px;
+  min-height: 300px;
   min-width: 400px;
-  height: 200px;
+  height: 300px;
   width: 400px;
   grid-column: 1 / 2;
   grid-row: 1 / 2;
 }
-.empty-slot.stock-slot {
+.empty-slot.movies-slot {
   min-height: 200px;
   min-width: 400px;
   height: 200px;
@@ -264,14 +421,6 @@ body {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
 }
-/* .news-widget { */
-  /* width: 1200px; */
-  /* width: 1100px; */
-  /* height: 400px; */
-  /* height: 375px; */
-  /* margin-top: 5px; */
-  /* margin-left: 30px; */
-/* } */
 
 .dashboard-card {
   /* box-shadow: 0 8px 32px rgba(44,62,80,0.16); */
@@ -314,103 +463,3 @@ body {
   color: #888;
 
 }
-
-/* Tablet styles */
-@media (max-width: 1200px) {
-  .dashboard-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 160px 320px;
-    width: 98vw;
-    height: 480px;
-    gap: 12px;
-    border-radius: 12px;
-  }
-  .weather-slot, .quote-slot, .stock-slot, .news-slot {
-    width: 100%;
-    height: 100%;
-    min-width: 0;
-    min-height: 0;
-  }
-  .weather-widget, .quote-widget, .stock-widget, .news-widget {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-/* Mobile styles */
-@media (max-width: 700px) {
-
-  #root {
-    width: 100%;
-    max-width: 1600px;
-    /* margin: 0 auto; */
-    margin: 0rem;  
-    padding: 0rem;
-    /* text-align: center; */
-    box-sizing: border-box;
-  }  
-
-  .dashboard-container {
-    flex-direction: column;
-    height: auto;
-  }
-  .sidebar {
-    position: static;
-    width: 100vw;
-    min-width: 0;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 1rem 0.5rem;
-    overflow-x: auto;
-  }
-  .sidebar ul {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-    padding-left: 0;
-    margin: 0;
-    width: 100%;
-    overflow-x: auto;
-  }
-  .sidebar-widget {
-    min-width: 120px;
-    margin: 0 0.5rem 0 0;
-    padding: 0.7rem 1rem;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-  }
-  .dashboard {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 0;
-  }
-  .dashboard-grid {
-    grid-template-areas:
-      "weather"
-      "quote"
-      "stock"
-      "news";
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 120px);
-    width: 100vw;
-    height: auto;
-    gap: 8px;
-    border-radius: 8px;
-  }
-  .weather-slot, .quote-slot, .stock-slot, .news-slot {
-    width: 100%;
-    height: 120px;
-    min-width: 0;
-    min-height: 0;
-  }
-  .weather-widget, .quote-widget, .stock-widget, .news-widget {
-    width: 100%;
-    height: 100%;
-  }
-}
-

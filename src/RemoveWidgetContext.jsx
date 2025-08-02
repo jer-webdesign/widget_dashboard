@@ -1,4 +1,8 @@
 import React, { createContext, useContext } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
+export function MaterialRemoveIcon(props) {
+  return <CloseIcon {...props} />;
+}
 
 export const RemoveWidgetContext = createContext();
 

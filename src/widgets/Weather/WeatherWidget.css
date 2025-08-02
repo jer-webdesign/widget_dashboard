@@ -1,34 +1,76 @@
+/* Rotate weather icons */
+.weather-animated-row .fa-sun,
+.weather-animated-row .fa-cloud-sun,
+.weather-animated-row .fa-cloud,
+.weather-animated-row .fa-snowflake {
+  animation: weatherZoom 10s ease-in-out infinite;
+}
+
+@keyframes weatherZoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.10); }
+  100% { transform: scale(1); }
+}
+/* Animated bounce for weather icon and temperature row */
+.weather-animated-row {
+  animation: weatherBounce 15s ease-in-out infinite;
+}
+
+@keyframes weatherBounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0); }
+}
+
 .weather-widget {
-  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-  border-radius: 12px;
-  padding: 1.2rem;
-  box-shadow: 0 2px 12px rgba(44,62,80,0.08);
-  color: #232946;
-  font-family: inherit;
-  transition: box-shadow 0.2s, transform 0.2s;
-  width: 300px;
-  height: 100px;
-  min-width: 300px;
-  min-height: 100px;
-  max-width: 300px;
-  max-height: 100px;
+  /* margin-top: -1.3rem; */
+
+@keyframes skyZoom {
+  0% {
+    background-image: 100% 100%;
+  }
+  50% {
+    background-image: 115% 115%;
+  }
+  100% {
+    background-image: 100% 100%;
+  }
 }
-.weather-widget h3 {
-  margin-top: 0;
-  font-size: 1.2rem;
+  border-radius: 1rem;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
-/* .remove-widget { */
-  /* background: #ff4b5c; */
-  /* color: black; */
-  /* border: none;
-  border-radius: 50%;
-  width: 28px;
-  height: 28px;
-  font-size: 1.2rem;
-  margin-bottom: 8px;
-  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
-  display: inline-block;
-  opacity: 1;
-  visibility: visible;
-  position: static; */
-/* } */
+
+.weather-details-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+.weather-details-centered > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-details-centered > div:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-heading-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}

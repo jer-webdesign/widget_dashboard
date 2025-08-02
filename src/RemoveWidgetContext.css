@@ -1,0 +1,26 @@
+.circular-remove {
+  /* background: #d32f2f; */
+  background: rgb(211, 47, 47, 0.1);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+  opacity: 1;
+  visibility: visible;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 2;
+}
+.circular-remove:hover {
+  background: #ff4b5c;  
+}

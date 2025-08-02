@@ -1,0 +1,192 @@
+.worddict-widget {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  max-width: 900px;
+  max-height: 410px;
+  box-sizing: border-box;
+  margin-top: 0;
+  transition: box-shadow 0.2s, transform 0.2s;
+  border: 2px solid #48aaff;
+  border-radius: 2rem;
+  background-color: #eafff8
+}
+
+.worddict-container {
+  max-height: 500px;
+  overflow-y: auto;
+  background-color:#eafff8;
+  border-radius: 2rem;
+  /* border: 1px solid #ddd; */
+  margin-bottom: 0;
+}
+
+.worddict-widget:hover {
+  box-shadow: 0 0 32px 8px rgba(48, 165, 233, 0.25), 0 4px 16px rgba(41, 95, 139, 0.18);
+  transform: scale(1.01);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.remove-widget {
+  position: absolute;
+  right: 14px;
+  color: #1d29cc;
+  font-size: 1.3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.remove-widget:hover {
+  color: #4fc3f7;
+}
+
+.worddict-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.get-word-btn {
+    right: 1rem;
+    bottom: 0.2rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 1rem;
+    background: #8cdab5;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    z-index: 2;
+    transition: background 0.2s, box-shadow 0.2s;  
+}
+
+.get-word-btn:hover {
+  background: #478669;
+  transform: scale(1.1);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+
+.worddict-container {
+  overflow-y: auto;
+  border-radius: 3rem;
+  margin-bottom: 0;
+}
+
+.worddict-content {
+  padding: 3rem 1rem 0 3rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.worddict-blockquote {
+  font-size: 1.4rem;
+  word-break: break-word;
+  white-space: pre-wrap;
+  position: relative;
+  font-family: 'Montserrat', 'Georgia', 'Times New Roman', serif;
+  color: #232946;
+  text-align: center;
+  border-radius: 3rem;
+  line-height: 1.4;
+}
+
+.worddict-loading {
+  text-align: center;
+  margin-top: 3.5rem;
+  font-size: 2rem;
+  color: #666;
+  font-style: italic;
+}
+
+.worddict-loading {
+  font-size: 2rem;
+
+}
+
+.worddict-spinner {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 15px;
+}
+
+.loading-text {
+  font-size: 1.75rem;
+  color: #134c72ff;
+  font-weight: bold;
+}
+
+.word-title {
+  font-size: 2.3rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: #1d29cc;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
+.parts-of-speech {
+  font-size: 1.4rem;
+  color: #2273aaff;
+  font-weight: 600;
+}
+
+.main-definition {
+  font-size: 1.5rem;
+  color: #3a5ca8;
+  font-weight: 600;
+  border-radius: 0.7rem;
+  padding: 0.8rem 1.2rem;
+}
+
+
+.worddict-error {
+  text-align: center;
+  padding: 40px;
+  font-size: 16px;
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+}
+
+/* Custom scrollbar for webkit browsers */
+.worddict-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.worddict-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+.worddict-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 5px;
+}
+
+.worddict-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Sync with App.css drag-over states */
+.worddict-slot.drag-over .worddict-widget {
+  animation: slotPulse 0.7s infinite alternate;
+  transition: background 0.2s, border 0.2s;
+}
+
+@keyframes slotPulse {
+  from {
+    box-shadow: 0 0 0 0 rgba(75, 255, 255, 0.18);
+  }
+  to {
+    box-shadow: 0 0 16px 6px rgba(75, 198, 255, 0.28);
+  }
+}
+

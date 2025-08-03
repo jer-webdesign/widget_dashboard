@@ -99,7 +99,7 @@ h3 {
 
 .movies-widget img {
   height: auto;
-  width: 37.5%; /* 25% * 1.5 = 37.5% */
+  width: 20%; 
   max-height: 150%; /* 100% * 1.5 = 150% */
   max-width: 150%; /* 100% * 1.5 = 150% */
   border-radius: 10px;

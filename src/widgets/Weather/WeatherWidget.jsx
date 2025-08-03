@@ -56,7 +56,7 @@ export default function WeatherWidget({ weather: weatherProp, setWeather: setWea
         playsInline
         style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }}
       >
-        <source src="/widget_dashboard/assets/sky_cloud.mp4" type="video/mp4" />
+        <source src="/assets/sky_cloud.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       {/* Top left: date, time, position */}

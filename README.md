@@ -84,6 +84,7 @@ widget_dashboard/
 ├── package.json
 ├── vite.config.js
 ├── .gitignore
+├── eslint.config.js
 ├── .index.html
 └── README.md
 ```

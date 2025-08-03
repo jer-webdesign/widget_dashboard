@@ -60,8 +60,10 @@ A modern, interactive dashboard built with React and Vite featuring drag-and-dro
 ```
 widget_dashboard/
 ├── public/
-│   ├── vite.svg
-│   └── index.html
+│   ├── blue-sky.jpg
+|   ├── question_marks_background.jpg
+│   └── sky-cloud.mp4
+└── dashboard.png
 ├── src/
 │   ├── widgets/
 │   │   ├── Weather/
@@ -80,12 +82,10 @@ widget_dashboard/
 │   ├── App.css
 │   ├── main.jsx
 │   └── RemoveWidgetContext.jsx
-├── .github/
-│   └── workflows/
-│       └── deploy.yml
 ├── package.json
 ├── vite.config.js
 ├── .gitignore
+├── .index.html
 └── README.md
 ```
 
@@ -248,3 +248,28 @@ The dashboard supports three main breakpoints:
 - **Desktop (>1024px)**: Full sidebar with 2x2 grid layout
 - **Tablet (768px-1024px)**: Horizontal sidebar with 2x2 grid
 - **Mobile (≤767px)**: Compact horizontal sidebar with 1x4 grid
+
+## Attributions
+- APIs and External Services
+- Free Dictionary API. (n.d.). Free Dictionary API. https://dictionaryapi.dev/
+- GitHub. (2025). GitHub Pages. https://pages.github.com/
+- OMDb API. (n.d.). The Open Movie Database. http://www.omdbapi.com/
+- Open Trivia Database. (n.d.). Open Trivia DB. https://opentdb.com/
+- OpenWeatherMap. (n.d.). Weather API. https://openweathermap.org/api
+### JavaScript Libraries and Frameworks
+- Emotion. (2025). @emotion/react (Version 11.14.0) [JavaScript library]. https://emotion.sh/
+- Gupta, R. (2025). react-dnd (Version 16.0.1) [JavaScript library]. https://react-dnd.github.io/react-dnd/
+- Material-UI. (2025). @mui/icons-material (Version 7.2.0) [JavaScript library]. https://mui.com/
+- Meta Platforms, Inc. (2025). React (Version 19.1.0) [JavaScript library]. https://react.dev/
+- You, E. (2025). Vite (Version 7.0.4) [Build tool]. https://vitejs.dev/
+- Development Tools
+- ESLint. (2025). ESLint (Version 9.30.1) [JavaScript linter]. https://eslint.org/
+- GitHub. (2025). GitHub Actions. https://github.com/features/actions
+- Node.js Foundation. (2025). Node.js. https://nodejs.org/
+- npm, Inc. (2025). npm. https://www.npmjs.com/
+### Design and Styling Resources
+- MDN Web Docs. (2025). CSS Grid Layout. Mozilla. https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
+- MDN Web Docs. (2025). CSS Flexible Box Layout. Mozilla. https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout
+- W3C. (2025). CSS3. World Wide Web Consortium. https://www.w3.org/Style/CSS/
+- W3C. (2025). HTML5. World Wide Web Consortium. https://html.spec.whatwg.org/
+

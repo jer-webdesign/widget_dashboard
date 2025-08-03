@@ -60,7 +60,6 @@ A modern, interactive dashboard built with React and Vite featuring drag-and-dro
 ```
 widget_dashboard/
 ├── public/
-│   ├── blue-sky.jpg
 |   ├── question_marks_background.jpg
 │   └── sky-cloud.mp4
 └── dashboard.png

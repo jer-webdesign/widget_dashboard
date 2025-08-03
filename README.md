@@ -239,7 +239,7 @@ The dashboard supports three main breakpoints:
 - Material-UI. (2025). @mui/icons-material (Version 7.2.0) [JavaScript library]. https://mui.com/
 - Meta Platforms, Inc. (2025). React (Version 19.1.0) [JavaScript library]. https://react.dev/
 - You, E. (2025). Vite (Version 7.0.4) [Build tool]. https://vitejs.dev/
-- Development Tools
+### Development Tools
 - ESLint. (2025). ESLint (Version 9.30.1) [JavaScript linter]. https://eslint.org/
 - GitHub. (2025). GitHub Actions. https://github.com/features/actions
 - Node.js Foundation. (2025). Node.js. https://nodejs.org/

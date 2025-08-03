@@ -95,7 +95,7 @@ h3 {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('/widget_dashboard/assets/question_marks_background.jpg') center center/cover no-repeat;
+  background: url('/assets/question_marks_background.jpg') center center/cover no-repeat;
   opacity: 0.08;
   border-radius: 1.5rem;
   z-index: 0;

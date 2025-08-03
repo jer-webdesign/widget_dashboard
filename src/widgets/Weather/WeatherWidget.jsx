@@ -73,7 +73,7 @@ export default function WeatherWidget({ weather: weatherProp, setWeather: setWea
         {weather ? (
           <div className="weather-details-centered">
             <div style={{ fontWeight: 'bold', fontSize: '2rem' , marginTop: '4rem'}}>Calgary</div>
-            <div className="weather-animated-row" style={{ fontSize: '4.5rem', margin: '2rem 0 0 0', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+            <div className="weather-animated-row" style={{ fontSize: '4.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
               {(() => {
                 if (weather.temperature >= 25) {
                   return <i className="fa-solid fa-sun" style={{ fontSize: '7rem', color: '#ffd700' }}></i>;

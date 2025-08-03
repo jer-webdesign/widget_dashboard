@@ -111,8 +111,8 @@ widget_dashboard/
 3. **Set up environment variables (Optional)**
    Create a `.env` file in the root directory for API keys:
    ```env
-   VITE_OPENWEATHER_API_KEY=your_openweather_api_key
-   VITE_OMDB_API_KEY=your_omdb_api_key
+   VITE_OPENWEATHER_API_KEY=your_openweather_api_key   (Free API generation)
+   VITE_OMDB_API_KEY=your_omdb_api_key (Free API generation)
    ```
    *Note: The app includes fallback mechanisms and will work without API keys*
 
@@ -123,6 +123,7 @@ widget_dashboard/
 
 5. **Open your browser**
    Navigate to `http://localhost:5173`
+
 
 ### Available Scripts
 
@@ -138,31 +139,7 @@ widget_dashboard/
 
 This project is configured for automatic deployment to GitHub Pages using GitHub Actions.
 
-#### Automatic Deployment Setup
-
-1. **Fork or clone the repository**
-   ```bash
-   git clone https://github.com/jer-webdesign/widget_dashboard.git
-   ```
-
-2. **Push to your GitHub repository**
-   ```bash
-   git remote set-url origin https://github.com/yourusername/widget_dashboard.git
-   git push origin main
-   ```
-
-3. **Enable GitHub Pages**
-   - Go to repository Settings → Pages
-   - Select "GitHub Actions" as the source
-   - The workflow will automatically trigger on pushes to main
-
-4. **Access your deployed app**
-   Your dashboard will be available at:
-   ```
-   https://yourusername.github.io/widget_dashboard/
-   ```
-
-#### Manual Deployment
+#### Deployment
 
 If you prefer manual deployment:
 

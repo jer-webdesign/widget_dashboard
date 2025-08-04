@@ -136,7 +136,7 @@ export default function MovieWidget({ movie: movieProp, setMovie: setMovieProp }
           <img
             src={movie.Poster && movie.Poster !== 'N/A' && movie.Poster !== '' ? movie.Poster : 'https://via.placeholder.com/150x220?text=No+Image'}
             alt={movie.Title}
-            style={{ marginTop: '0', width: '200px', height: 'auto', objectFit: 'cover', borderRadius: '8px' }}
+            style={{ objectFit: 'cover', borderRadius: '8px' }}
             onError={e => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/150x220?text=No+Image'; }}
           />
           <div className="movies-info">

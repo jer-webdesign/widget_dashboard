@@ -113,9 +113,7 @@ export default function WordDictWidget({ index }) {
       <div className="worddict-container">
         {loading ? (
           <div className="worddict-loading">
-            <div className="loading-text">
               Getting random word...
-            </div>
           </div>
         ) : wordData ? (
             <blockquote className="worddict-blockquote">

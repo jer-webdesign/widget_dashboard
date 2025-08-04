@@ -17,7 +17,6 @@
   overflow-y: auto;
   background-color:#eafff8;
   border-radius: 2rem;
-  /* border: 1px solid #ddd; */
   margin-bottom: 0;
 }
 
@@ -102,10 +101,9 @@
 
 .worddict-loading {
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #666;
-  font-style: italic;
-  margin-top: 1rem
+  margin-top: 4rem;
 }
 
 .worddict-spinner {

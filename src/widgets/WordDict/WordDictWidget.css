@@ -93,22 +93,19 @@
   position: relative;
   font-family: 'Montserrat', 'Georgia', 'Times New Roman', serif;
   color: #232946;
-  text-align: center;
+  text-align: left;
   border-radius: 3rem;
   line-height: 1.4;
+  margin: 0;  
+  padding: 0 2rem;
 }
 
 .worddict-loading {
   text-align: center;
-  margin-top: 3.5rem;
-  font-size: 2rem;
+  font-size: 1rem;
   color: #666;
   font-style: italic;
-}
-
-.worddict-loading {
-  font-size: 2rem;
-
+  margin-top: 1rem
 }
 
 .worddict-spinner {
@@ -117,14 +114,8 @@
   margin-bottom: 15px;
 }
 
-.loading-text {
-  font-size: 1.75rem;
-  color: #134c72ff;
-  font-weight: bold;
-}
-
 .word-title {
-  font-size: 2.3rem;
+  font-size: 1.5rem;
   font-weight: bold;
   text-transform: capitalize;
   color: #1d29cc;
@@ -132,17 +123,17 @@
 }
 
 .parts-of-speech {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   color: #2273aaff;
   font-weight: 600;
 }
 
 .main-definition {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   color: #3a5ca8;
   font-weight: 600;
   border-radius: 0.7rem;
-  padding: 0.8rem 1.2rem;
+  padding: 1rem 0;
 }
 
 
@@ -156,24 +147,6 @@
   border-radius: 4px;
 }
 
-/* Custom scrollbar for webkit browsers */
-.worddict-container::-webkit-scrollbar {
-  width: 10px;
-}
-
-.worddict-container::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 5px;
-}
-
-.worddict-container::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 5px;
-}
-
-.worddict-container::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
-}
 
 /* Sync with App.css drag-over states */
 .worddict-slot.drag-over .worddict-widget {

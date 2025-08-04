@@ -58,7 +58,6 @@
   font-size: 1.3rem;
 }
 .remove-widget:hover, .remove-widget-btn:hover {
-  /* background: #b71c1c; */
   color:#4fc3f7
 }
 .remove-widget-btn {
@@ -66,9 +65,7 @@
   font-weight: bold;
   z-index: 2;
 }
-/* .remove-widget-btn:hover {
-  background: #d32f2f;
-} */
+
 .worddict-list {
   list-style: none;
   padding: 0;
@@ -413,9 +410,9 @@ body {
   color: #888;
 }
 
-  .weather-details-centered {
-    margin-top: 3.5rem;
-  }
+.weather-details-centered {
+  margin-top: 3.5rem;
+}
 
 
 /* =========================
@@ -573,6 +570,19 @@ body {
     gap: 1.5rem;
   }
 
+  .trivia-widget blockquote,
+  .trivia-question-blockquote {
+    font-size: 1.2rem;
+    font-family: 'Montserrat', 'Segoe UI', 'Roboto', Arial, sans-serif;
+    color: #232946;
+    display: flex;
+    justify-content: center;
+    min-height: 8rem;
+    text-align: left;
+    border-radius: 1rem;
+    padding: 1.2rem 1.5rem;
+  }  
+
   .sidebar:hover {
     transform: none;
   }
@@ -629,7 +639,7 @@ body {
   .trivia-widget,
   .movies-widget,
   .worddict-widget {
-    max-width: 100%;
+    max-width: 105%;
     max-height: 300px;
     height: 300px;
   }
@@ -638,7 +648,7 @@ body {
   .trivia-slot,
   .movies-slot,
   .worddict-slot {
-    max-width: 100%;
+    max-width: 105%;
     max-height: 300px;
     height: 300px;
   }
@@ -735,20 +745,74 @@ body {
     font-size: 2.5rem;
   }
 
-  .movies-widget img {
+  /* Hide movie info elements on small mobile (except title) */
+  .movies-info,
+  .movies-plot,
+  .movies-meta {
+    display: none;
+  }
+
+  .weather-widget,
+  .trivia-widget,
+  .movies-widget,
+  .worddict-widget {
+    max-width: 105%;
+    max-height: 250px;
+    height: 250px;
+  }
+
+  .weather-slot,
+  .trivia-slot,
+  .movies-slot,
+  .worddict-slot {
+    max-width: 105%;
+    max-height: 250px;
+    height: 250px;
+  }  
+
+  /* Show movies title */
+  .movies-title {
+    display: block;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 0.5rem;
+    color: #232946;
+    font-weight: bold;
+  }
+
+  /* Center the movie image */
+  .movies-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .movies-row img {
     height: auto;
-    width: 100px;
-    height: auto; 
+    width: 90px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     flex-shrink: 0;
-    margin-bottom: 0;
+    margin: 0 auto;
     object-fit: contain;
     display: block;
-    margin-right: auto;
-    margin-left: auto;
     transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.2s;
   }  
+
+  .trivia-widget blockquote,
+  .trivia-question-blockquote {
+    font-size: 1rem;
+    font-family: 'Montserrat', 'Segoe UI', 'Roboto', Arial, sans-serif;
+    color: #232946;
+    display: flex;
+    justify-content: center;
+    min-height: 8rem;
+    text-align: left;
+    border-radius: 1rem;
+    padding: 1.2rem 1.5rem;
+  }
 
   .weather-animated-row .fa-solid .fa-sun,
   .weather-animated-row .fa-solid .fa-cloud-sun,
@@ -847,91 +911,15 @@ body {
     color: #283a4b;
   }
 
-  /* Word Dictionary Widget Scrollbar */
-  .worddict-widget {
-    max-width: 100%;
-    max-height: 250px;
-    height: 250px;
+   .worddict-widget {
     border-width: 1px;
     overflow-y: auto;
     overflow-x: hidden;
-  }
-
-  .worddict-widget::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .worddict-widget::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
-  }
-
-  .worddict-widget::-webkit-scrollbar-thumb {
-    background: rgba(72, 170, 255, 0.6);
-    border-radius: 3px;
-  }
-
-  .worddict-widget::-webkit-scrollbar-thumb:hover {
-    background: rgba(72, 170, 255, 0.8);
-  }
-
-  /* Movies Widget Scrollbar */
-  .movies-widget {
-    max-width: 100%;
-    max-height: 250px;
-    height: 250px;
-    border-width: 1px;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-
-  .movies-widget::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .movies-widget::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
-  }
-
-  .movies-widget::-webkit-scrollbar-thumb {
-    background: rgba(72, 170, 255, 0.6);
-    border-radius: 3px;
-  }
-
-  .movies-widget::-webkit-scrollbar-thumb:hover {
-    background: rgba(72, 170, 255, 0.8);
-  }
-
- /* Movies Row Scrollbar */
-.movies-row {
-  max-height: 250px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-right: 5px;
-}
-
-  .movies-row::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .movies-row::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
-  }
-
-  .movies-row::-webkit-scrollbar-thumb {
-    background: rgba(72, 170, 255, 0.6);
-    border-radius: 3px;
-  }
-
-  .movies-row::-webkit-scrollbar-thumb:hover {
-    background: rgba(72, 170, 255, 0.8);
   }
 
   .weather-widget,
   .trivia-widget {
-    max-width: 100%;
+    max-width: 98%;
     max-height: 250px;
     height: 250px;
     border-width: 1px;
@@ -939,6 +927,7 @@ body {
 
   h3 {
     font-size: 1rem;
+    margin-left: 4rem;
   }
 
   .word-title {
@@ -965,7 +954,7 @@ body {
 
   .weather-slot,
   .trivia-slot {
-    max-width: 100%;
+    max-width: 98%;
     max-height: 250px;
     height: 250px;
   }

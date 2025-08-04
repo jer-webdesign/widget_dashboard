@@ -317,7 +317,7 @@ body {
 }
 
 .quote-widget blockquote {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-family: 'Georgia', 'Times New Roman', serif;
   color: #232946;
   font-style: italic;
@@ -413,12 +413,17 @@ body {
   color: #888;
 }
 
+  .weather-details-centered {
+    margin-top: 3.5rem;
+  }
+
+
 /* =========================
    RESPONSIVE MEDIA QUERIES
    ========================= */
 
-/* Laptop/Tablet - 861px to 1800px */
-@media screen and (max-width: 1800px) and (min-width: 861px) {
+/* Laptop/Tablet - 1024px to 1800px */
+@media screen and (max-width: 1800px) and (min-width: 1024px) {
   #root {
     margin-left: 0;
     padding: 1rem;
@@ -462,8 +467,30 @@ body {
     margin: 0;
     width: 3rem;
     height: 3rem;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
   }
+
+  .weather-details-centered {
+    margin-top: 1.5rem;
+  }
+
+  .movies-widget img {
+    height: auto;
+    width: 150px;
+    height: auto; 
+    /* max-height: 250%;
+    max-width: 250%; */
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    flex-shrink: 0;
+    margin-bottom: 0;
+    object-fit: contain;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.2s;
+  }  
+
 
   .sidebar-widget[data-tooltip]:hover:after {
     display: none;
@@ -508,7 +535,7 @@ body {
   }
 
   .quote-widget h3 {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
   }
 
   .movies-slot .weather-details-centered > div:first-child,
@@ -517,8 +544,9 @@ body {
   }
 }
 
-/* Mobile - 481px to 860px */
-@media screen and (max-width: 860px) and (min-width: 481px) {
+
+/* Mobile - 861px to 1023px */
+@media screen and (max-width: 1023px) and (min-width: 861px) {
   body::before {
     background-size: 20px 20px;
   }
@@ -548,6 +576,11 @@ body {
   .sidebar:hover {
     transform: none;
   }
+
+  .weather-details-centered {
+    margin-top: 1rem;
+  }
+
 
   .sidebar h2 {
     display: block;
@@ -617,7 +650,7 @@ body {
   }
 
   .quote-widget h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .quote-widget .trivia-answer {
@@ -664,8 +697,8 @@ body {
   }
 }
 
-/* Small Mobile - ≤ 480px */
-@media screen and (max-width: 480px) {
+/* Small Mobile - ≤ 860px */
+@media screen and (max-width: 860px) {
   body::before {
     background-size: 15px 15px;
   }
@@ -690,6 +723,38 @@ body {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    margin: 0;
+  }
+
+  .weather-details-centered {
+    margin-top: 2rem;
+    font-size: 0rem;
+  }
+
+  .weather-animated-row {
+    font-size: 2.5rem;
+  }
+
+  .movies-widget img {
+    height: auto;
+    width: 100px;
+    height: auto; 
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    flex-shrink: 0;
+    margin-bottom: 0;
+    object-fit: contain;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.2s;
+  }  
+
+  .weather-animated-row .fa-solid .fa-sun,
+  .weather-animated-row .fa-solid .fa-cloud-sun,
+  .weather-animated-row .fa-solid .fa-cloud,
+  .weather-animated-row .fa-solid .fa-snowflake {
+      font-size: 1rem;
   }
 
   .sidebar:hover {
@@ -737,10 +802,131 @@ body {
     gap: 8px;
   }
 
+  .weather-details-centered {
+    margin-top: 0;
+  }
+
   /* Hide movies and worddict slots on small mobile */
   .movies-slot,
   .worddict-slot {
     display: none;
+  }
+
+  /* Disable sidebar widgets when slots are occupied */
+  .weather-slot:not(.empty-slot) ~ .sidebar .sidebar-widget[data-tooltip="Weather"],
+  .trivia-slot:not(.empty-slot) ~ .sidebar .sidebar-widget[data-tooltip="Programming Trivia"] {
+    opacity: 0.3;
+    pointer-events: none;
+    cursor: not-allowed;
+    background: #666 !important;
+    color: #999 !important;
+  }
+
+  /* Alternative approach: Hide unused widgets when both slots are filled */
+  .dashboard-grid:has(.weather-slot:not(.empty-slot)):has(.trivia-slot:not(.empty-slot)) ~ .sidebar .sidebar-widget[data-tooltip="Movies"],
+  .dashboard-grid:has(.weather-slot:not(.empty-slot)):has(.trivia-slot:not(.empty-slot)) ~ .sidebar .sidebar-widget[data-tooltip="Word Dictionary"] {
+    display: none;
+  }
+
+  /* Show only available widgets based on empty slots */
+  .dashboard-grid:has(.weather-slot:not(.empty-slot)) ~ .sidebar .sidebar-widget[data-tooltip="Weather"] {
+    opacity: 0.3;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  .dashboard-grid:has(.trivia-slot:not(.empty-slot)) ~ .sidebar .sidebar-widget[data-tooltip="Programming Trivia"] {
+    opacity: 0.3;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  .worddict-loading {
+    text-align: center;
+    font-size: 1rem;
+    color: #283a4b;
+  }
+
+  /* Word Dictionary Widget Scrollbar */
+  .worddict-widget {
+    max-width: 100%;
+    max-height: 250px;
+    height: 250px;
+    border-width: 1px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .worddict-widget::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .worddict-widget::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  .worddict-widget::-webkit-scrollbar-thumb {
+    background: rgba(72, 170, 255, 0.6);
+    border-radius: 3px;
+  }
+
+  .worddict-widget::-webkit-scrollbar-thumb:hover {
+    background: rgba(72, 170, 255, 0.8);
+  }
+
+  /* Movies Widget Scrollbar */
+  .movies-widget {
+    max-width: 100%;
+    max-height: 250px;
+    height: 250px;
+    border-width: 1px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .movies-widget::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .movies-widget::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  .movies-widget::-webkit-scrollbar-thumb {
+    background: rgba(72, 170, 255, 0.6);
+    border-radius: 3px;
+  }
+
+  .movies-widget::-webkit-scrollbar-thumb:hover {
+    background: rgba(72, 170, 255, 0.8);
+  }
+
+ /* Movies Row Scrollbar */
+.movies-row {
+  max-height: 250px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 5px;
+}
+
+  .movies-row::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .movies-row::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  .movies-row::-webkit-scrollbar-thumb {
+    background: rgba(72, 170, 255, 0.6);
+    border-radius: 3px;
+  }
+
+  .movies-row::-webkit-scrollbar-thumb:hover {
+    background: rgba(72, 170, 255, 0.8);
   }
 
   .weather-widget,
@@ -750,6 +936,32 @@ body {
     height: 250px;
     border-width: 1px;
   }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  .word-title {
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: #1d29cc;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  }
+
+  .parts-of-speech {
+    font-size: 0.8rem;
+    color: #2273aaff;
+    font-weight: 500;
+  }
+
+  .main-definition {
+    font-size: 0.8rem;
+    color: #3a5ca8;
+    font-weight: 500;
+    border-radius: 0.7rem;
+    padding: 1rem 0;
+  }  
 
   .weather-slot,
   .trivia-slot {

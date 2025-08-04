@@ -517,8 +517,8 @@ body {
   }
 }
 
-/* Mobile - 381px to 860px */
-@media screen and (max-width: 860px) and (min-width: 381px) {
+/* Mobile - 481px to 860px */
+@media screen and (max-width: 860px) and (min-width: 481px) {
   body::before {
     background-size: 20px 20px;
   }
@@ -664,8 +664,8 @@ body {
   }
 }
 
-/* Small Mobile - ≤ 380px */
-@media screen and (max-width: 380px) {
+/* Small Mobile - ≤ 480px */
+@media screen and (max-width: 480px) {
   body::before {
     background-size: 15px 15px;
   }
@@ -731,35 +731,31 @@ body {
     height: auto;
     grid-template-areas:
       "weather"
-      "trivia"
-      "movies"
-      "worddict";
+      "trivia";
     grid-template-columns: 1fr;
-    /* jer01 grid-template-rows: auto auto auto auto;*/
-    grid-template-rows: auto;
+    grid-template-rows: auto auto;
     gap: 8px;
   }
 
+  /* Hide movies and worddict slots on small mobile */
+  .movies-slot,
+  .worddict-slot {
+    display: none;
+  }
+
   .weather-widget,
-  .trivia-widget,
-  .movies-widget,
-  .worddict-widget {
+  .trivia-widget {
     max-width: 100%;
     max-height: 250px;
-   /* height: 250px; */
-    height: 500px;
+    height: 250px;
     border-width: 1px;
   }
 
   .weather-slot,
-  .trivia-slot,
-  .movies-slot,
-  .worddict-slot {
+  .trivia-slot {
     max-width: 100%;
     max-height: 250px;
-    /* height: 250px; */
-    height: 500px;
-    
+    height: 250px;
   }
 
   /* Adjust widget content for small mobile */
@@ -778,44 +774,9 @@ body {
     padding: 0.5rem 0.8rem;
   }
 
-  .movies-slot .weather-details-centered > div:first-child,
-  .worddict-slot .weather-details-centered > div:first-child {
-    font-size: 1.1rem !important;
-    margin-top: 1rem !important;
-  }
-
   .remove-widget, .remove-widget-btn {
     right: 6px;
     font-size: 1rem;
-  }
-
-  /* Movies widget small mobile adjustments */
-  .movies-row {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .movies-row img {
-    width: 100px !important;
-    margin-bottom: 0.3rem;
-  }
-
-  .movies-info {
-    padding: 0 0.3rem;
-  }
-
-  .movies-title {
-    font-size: 1rem;
-  }
-
-  .movies-plot {
-    font-size: 0.8rem;
-    line-height: 1.2;
-  }
-
-  .movies-meta {
-    font-size: 0.7rem;
   }
 
   /* Button adjustments */

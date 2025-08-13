@@ -1,14 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/dashboard.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  </head>
-  <body>
-    <div id="root"></div>
-      <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Important Dates 2024/25 academic year</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Important Dates 2024/25 academic year</h1>
+    <!-- <p>Spring/Summer 2025 to Winter 2026</p> -->
+  </header>
+
+  <div class="filters">
+    <label for="term">Filter by Term:</label>
+    <select id="term">
+      <option value="All">All Terms</option>
+      <option value="Spring/Summer 2025">Spring/Summer 2025</option>
+      <option value="Fall 2025">Fall 2025</option>
+      <option value="Winter 2026">Winter 2026</option>
+      <option value="Spring/Summer 2026">Spring/Summer 2026</option> <!-- New -->      
+    </select>
+
+    <input type="search" id="search" placeholder="Search events..." aria-label="Search events" />
+  </div>
+
+  <div class="tabs" role="tablist" aria-label="Filter by category">
+    <button class="tab" data-category="All" role="tab" aria-selected="false">All</button>
+    <button class="tab" data-category="Applications & Admissions" role="tab" aria-selected="false">Applications & Admissions</button>    
+    <button class="tab" data-category="Registration & Enrollment" role="tab" aria-selected="false">Registration & Enrollment</button>    
+    <button class="tab active" data-category="Tuition & Payment" role="tab" aria-selected="true">Tuition & Payment</button>
+    <button class="tab" data-category="Graduation & Degrees" role="tab" aria-selected="false">Graduation & Degrees</button>
+    <button class="tab" data-category="Holidays & Breaks" role="tab" aria-selected="false">Holidays & Breaks</button>
+    <button class="tab" data-category="Exams & Academic Deadlines" role="tab" aria-selected="false">Exams & Academic Deadlines</button>
+    <button class="tab" data-category="Term Dates & Schedules" role="tab" aria-selected="false">Term Dates & Schedules</button>
+  </div>
+
+  <main>
+    <section class="timeline" id="timeline" aria-live="polite" aria-relevant="additions"></section>
+  </main>
+
+  <script src="events.js"></script>
+  <script src="script.js"></script>
+</body>
 </html>

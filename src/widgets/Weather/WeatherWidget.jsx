@@ -66,7 +66,7 @@ export default function WeatherWidget({ weather: weatherProp, setWeather: setWea
         playsInline
         className="weather-video-bg"
       >
-        <source src="/widget_dashboard/assets/sky_cloud.mp4" type="video/mp4" />
+        <source src="/assets/sky_cloud.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       
